@@ -1,5 +1,6 @@
 using GeolocationApi.Contracts;
 using GeolocationApi.Data.Repository;
+using GeolocationApi.Infrastructure;
 using GeolocationApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 
