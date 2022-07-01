@@ -1,14 +1,30 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace GeolocationApi.Dto;
 
-public record Location(
-    [property: JsonPropertyName("geoname_id")] int GeonameId,
-    [property: JsonPropertyName("capital")] string Capital,
-    [property: JsonPropertyName("languages")] IReadOnlyList<Language> Languages,
-    [property: JsonPropertyName("country_flag")] string CountryFlag,
-    [property: JsonPropertyName("country_flag_emoji")] string CountryFlagEmoji,
-    [property: JsonPropertyName("country_flag_emoji_unicode")] string CountryFlagEmojiUnicode,
-    [property: JsonPropertyName("calling_code")] string CallingCode,
-    [property: JsonPropertyName("is_eu")] bool IsEu
-);
+public class Location
+{
+    [JsonProperty("geoname_id")]
+    public int? GeonameId { get; set; }
+
+    [JsonProperty("capital")]
+    public string Capital { get; set; }
+
+    [JsonProperty("languages")]
+    public List<Language> Languages { get; set; }
+
+    [JsonProperty("country_flag")]
+    public string CountryFlag { get; set; }
+
+    [JsonProperty("country_flag_emoji")]
+    public string CountryFlagEmoji { get; set; }
+
+    [JsonProperty("country_flag_emoji_unicode")]
+    public string CountryFlagEmojiUnicode { get; set; }
+
+    [JsonProperty("calling_code")]
+    public string CallingCode { get; set; }
+
+    [JsonProperty("is_eu")]
+    public bool? IsEu { get; set; }
+}

@@ -1,8 +1,12 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace GeolocationApi.Dto;
 
-public record Connection(
-    [property: JsonPropertyName("asn")] int Asn,
-    [property: JsonPropertyName("isp")] string Isp
-);
+public class Connection
+{
+    [JsonProperty("asn")]
+    public int? Asn { get; set; }
+
+    [JsonProperty("isp")]
+    public string Isp { get; set; }
+}

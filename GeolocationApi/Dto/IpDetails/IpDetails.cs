@@ -1,54 +1,54 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace GeolocationApi.Dto;
 
 public class IpDetails
 {
-    [JsonPropertyName("ip")]
+    [JsonProperty("ip")]
     public string Ip { get; set; }
 
-    [JsonPropertyName("type")]
+    [JsonProperty("type")]
     public string Type { get; set; }
 
-    [JsonPropertyName("continent_code")]
+    [JsonProperty("continent_code")]
     public string ContinentCode { get; set; }
 
-    [JsonPropertyName("continent_name")]
+    [JsonProperty("continent_name")]
     public string ContinentName { get; set; }
 
-    [JsonPropertyName("country_code")]
+    [JsonProperty("country_code")]
     public string CountryCode { get; set; }
 
-    [JsonPropertyName("country_name")]
+    [JsonProperty("country_name")]
     public string CountryName { get; set; }
 
-    [JsonPropertyName("region_code")]
+    [JsonProperty("region_code")]
     public string RegionCode { get; set; }
 
-    [JsonPropertyName("region_name")]
+    [JsonProperty("region_name")]
     public string RegionName { get; set; }
 
-    [JsonPropertyName("city")]
+    [JsonProperty("city")]
     public string City { get; set; }
 
-    [JsonPropertyName("zip")]
+    [JsonProperty("zip")]
     public string Zip { get; set; }
 
-    [JsonPropertyName("latitude")]
-    public double Latitude { get; set; }
+    [JsonProperty("latitude")]
+    public double? Latitude { get; set; }
 
-    [JsonPropertyName("longitude")]
-    public double Longitude { get; set; }
+    [JsonProperty("longitude")]
+    public double? Longitude { get; set; }
 
-    [JsonPropertyName("location")]
+    [JsonProperty("location")]
     public Location Location { get; set; }
 
-    [JsonPropertyName("time_zone")]
+    [JsonProperty("time_zone")]
     public TimeZone TimeZone { get; set; }
 
-    [JsonPropertyName("currency")]
+    [JsonProperty("currency")]
     public Currency Currency { get; set; }
 
-    [JsonPropertyName("connection")]
+    [JsonProperty("connection")]
     public Connection Connection { get; set; }
 }

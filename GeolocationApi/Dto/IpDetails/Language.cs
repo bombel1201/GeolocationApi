@@ -1,9 +1,15 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace GeolocationApi.Dto;
 
-public record Language(
-    [property: JsonPropertyName("code")] string Code,
-    [property: JsonPropertyName("name")] string Name,
-    [property: JsonPropertyName("native")] string Native
-);
+public class Language
+{
+    [JsonProperty("code")]
+    public string Code { get; set; }
+
+    [JsonProperty("name")]
+    public string Name { get; set; }
+
+    [JsonProperty("native")]
+    public string Native { get; set; }
+}
