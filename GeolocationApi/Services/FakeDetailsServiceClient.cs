@@ -10,7 +10,7 @@ namespace GeolocationApi.Services
 
         public async Task<IpDetails> GetDetailsAsync(string ip)
         {
-            var result = hardcodedDetails.ToDetails();
+            var result = hardcodedDetails.FromJson<IpDetails>();
             if (result == null)
             {
                 return null;

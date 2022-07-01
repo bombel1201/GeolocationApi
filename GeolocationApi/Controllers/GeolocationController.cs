@@ -54,7 +54,7 @@ public class GeolocationController : ControllerBase
             return NotFound();
         }
 
-        return Ok(dto.ToDetails());
+        return Ok(dto.FromJson<IpDetails>());
     }
 
     [HttpPut]
@@ -82,7 +82,7 @@ public class GeolocationController : ControllerBase
             return NotFound();
         }
 
-        return Ok(dto.ToDetails());
+        return Ok(dto.FromJson<IpDetails>());
     }
 
     [HttpDelete("{ip}")]
@@ -104,6 +104,6 @@ public class GeolocationController : ControllerBase
         ipDetailsRepository.Delete(ip);
         await ipDetailsRepository.SaveAsync();
 
-        return Ok(dto.ToDetails());
+        return Ok(dto.FromJson<IpDetails>());
     }
 }

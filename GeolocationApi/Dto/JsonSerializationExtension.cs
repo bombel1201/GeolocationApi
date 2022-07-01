@@ -2,19 +2,21 @@
 
 namespace GeolocationApi.Dto
 {
-    public static class IpDetailsExtension
+    public static class JsonSerializationExtension
     {
-        public static IpDetails ToDetails(this string json)
+        public static T FromJson<T>(this string json)
+            where T : class
         {
             if (string.IsNullOrWhiteSpace(json))
             {
                 return null;
             }
 
-            return JsonConvert.DeserializeObject<IpDetails>(json);
+            return JsonConvert.DeserializeObject<T>(json);
         }
 
-        public static string ToJson(this IpDetails details)
+        public static string ToJson<T>(this T details)
+            where T : class
         {
             if (details == null)
             {
