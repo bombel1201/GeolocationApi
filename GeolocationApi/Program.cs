@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IIpDetailsRepository, IpDetailsRepositoryInMemory>();
-builder.Services.AddScoped<IDetailsServiceClient, FakeDetailsServiceClient>();
+builder.Services.AddHttpClient<IDetailsServiceClient, DetailsServiceClient>();
 
 var app = builder.Build();
 
