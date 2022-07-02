@@ -46,6 +46,7 @@ public class GeolocationController : ControllerBase
         }
 
         ipDetailsRepository.Create(ip, details.ToJson());
+        await ipDetailsRepository.SaveAsync();
 
         var dto = await ipDetailsRepository.GetDetailsAsync(ip);
         if (string.IsNullOrWhiteSpace(dto))

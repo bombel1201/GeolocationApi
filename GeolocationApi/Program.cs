@@ -1,4 +1,5 @@
 using GeolocationApi.Contracts;
+using GeolocationApi.Data;
 using GeolocationApi.Data.Repository;
 using GeolocationApi.Infrastructure;
 using GeolocationApi.Services;
@@ -11,8 +12,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<IIpDetailsRepository, IpDetailsRepositoryInMemory>();
+builder.Services.AddScoped<IIpDetailsRepository, IpDetailsSqlLiteRepository>();
 builder.Services.AddHttpClient<IDetailsServiceClient, DetailsServiceClient>();
+builder.Services.AddDbContext<GeolocationDbContext>();
 
 var app = builder.Build();
 
